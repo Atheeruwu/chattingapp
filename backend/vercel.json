@@ -1,0 +1,20 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "backend/src/index.js",  // Point to the correct index.js file in the backend
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "backend/src/index.js"  // Ensure the correct route for API is mapped to backend
+      },
+      {
+        "src": "/(.*)",
+        "dest": "frontend/dist/$1"  // Serve frontend from the dist folder
+      }
+    ]
+  }
+  
